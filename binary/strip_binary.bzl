@@ -36,7 +36,7 @@ def _strip_binary_rule_impl(ctx):
         arguments = [args],
         inputs = [src, ctx.file._strip_tool],
         outputs = [stripped, debug],
-        env={
+        env = {
             # If the base image is Make-built, it already has a /etc/ld.so.cache to look up installed binaries,
             # and rpaths could mess resolution order (since they have precedence over LD_LIBRARY_PATH).
             "STRIP_RPATH": "true" if ctx.attr._make_built_base[BuildSettingInfo].value else "false",
