@@ -1,4 +1,4 @@
-load(":binutils_toolchain.bzl", "binutils_binary", "BINUTILS_TOOLS")
+load(":binutils_toolchain.bzl", "BINUTILS_TOOLS", "binutils_binary")
 
 licenses(["notice"])
 
