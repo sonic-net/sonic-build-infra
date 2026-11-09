@@ -3,7 +3,6 @@
 # All possible values for SONiC ASIC vendors,
 # from @sonic-buildimage//README.md
 ASIC_MANUFACTURERS = [
-    "barefoot",
     "broadcom",
     "marvell-prestera",
     "marvell-teralynx",
@@ -23,7 +22,6 @@ DEVICES = [
     "accton",
     "alphanetworks",
     "arista",
-    "barefoot",
     "broadcom",
     "celestica",
     "centec",
@@ -54,7 +52,6 @@ DEVICES = [
     "ufispace",
     "virtual",
     "wistron",
-    "wnc",
     # A special value we use to default to an invalid vendor.
     # sonic-buildimage doesn't default PLATFORM, so we shouldn't either.
     "_incompatible",
