@@ -3,6 +3,14 @@
   "extends": ["local>sonic-net/sonic-pipelines//renovate/default"],
   "packageRules": [
     {
+      "description": "opentelemetry-otlp builds on tonic, tonic on prost, and tracing-opentelemetry on opentelemetry, each below 1.0 where a minor update breaks. They take their new versions together, so one pull request updates them all; apart, each one fails the build alone",
+      "matchManagers": ["cargo"],
+      "matchPackageNames": ["/^opentelemetry/", "/^tonic/", "/^prost/", "tracing-opentelemetry"],
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": "<1.0.0",
+      "groupName": "opentelemetry, tonic and prost"
+    },
+    {
       "description": "Renovate merges the updates the preset labels automerge: security updates below a major version, except patched modules. It merges on a later run, once every check on the head commit has passed, not only the required ones, and the renovate-approve app has approved the pull request. Reviewers are still assigned, so one that fails reaches them.",
       "matchJsonata": ["isVulnerabilityAlert = true and $not('patched-module' in addLabels)"],
       "matchUpdateTypes": ["patch", "minor"],
