@@ -42,11 +42,17 @@ _ALTERNATIVES_TAKEN_BY_THE_BASE = ["vim"]
 tar(
     name = "vim_alternatives_pkg",
     mtree = [
-        _LINK.format(path = "usr/bin/" + name, target = "/etc/alternatives/" + name)
+        _LINK.format(
+            path = "usr/bin/" + name,
+            target = "/etc/alternatives/" + name,
+        )
         for name in _VIM_ALTERNATIVES
         if name not in _ALTERNATIVES_TAKEN_BY_THE_BASE
     ] + [
-        _LINK.format(path = "etc/alternatives/" + name, target = "/usr/bin/vim.basic")
+        _LINK.format(
+            path = "etc/alternatives/" + name,
+            target = "/usr/bin/vim.basic",
+        )
         for name in _VIM_ALTERNATIVES
     ],
     visibility = ["//visibility:public"],
